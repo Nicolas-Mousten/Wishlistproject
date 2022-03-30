@@ -1,4 +1,4 @@
-package repository;
+package com.example.wishlist.repositores;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

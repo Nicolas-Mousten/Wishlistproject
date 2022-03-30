@@ -1,0 +1,26 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+body{
+    height: 2500px;
+    width: 100vh;
+    background-color: blue;
+
+}
+
+#headerbox{
+    height: 10px;
+    widht: 10px;
+
+
+}
+
+.headerboxleft{
+    background-color: antiquewhite;
+
+}
+.headerboxright{
+    background-color: beige;
+}
