@@ -1,5 +1,7 @@
 package com.example.wishlist.repositores;
 
+import com.example.wishlist.model.Wish;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
@@ -27,11 +29,17 @@ public class Database {
             }
         }
 
-        public void insertIntoProduct(){
+        public void insertIntoProduct(Wish wish){
+            int productId = wish.getProductId();
+            String productName = wish.getProductName();
+            double productPrice = wish.getProductPrice();
             try {
-                stmt =
+                stmt = con.createStatement();
                 String sqlString = "INSERT INTO `product` (product_id, product_name, product_price,isReserved) " +
                         "VALUES ();";
+                stmt.executeUpdate(sqlString);
+                stmt.close();
+
             } catch(Exception e) {
                 System.out.println();
             }

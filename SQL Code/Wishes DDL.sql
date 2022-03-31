@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS `product` (
 foreign key(`wish_list_id`) references `wish_list`(`wish_list_id`)
 );
 
-CREATE TABLE IF NOT EXIST `user` (
+CREATE TABLE IF NOT EXISTS `user` (
     `email` VARCHAR(50) PRIMARY KEY,
     `password` VARCHAR(12)
 );

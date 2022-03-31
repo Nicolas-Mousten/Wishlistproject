@@ -12,7 +12,7 @@ public class Wish {
 
     public void setProductId(int productId) {this.productId = productId;}
 
-    public String getProducName() {return productName;}
+    public String getProductName() {return productName;}
 
     public void setProductName(String productName) {this.productName = productName;}
 
