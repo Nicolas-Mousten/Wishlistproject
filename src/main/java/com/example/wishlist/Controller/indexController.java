@@ -11,6 +11,10 @@ public class indexController {
         System.out.println("hello");
         return "Frontpage";
     }
+    @GetMapping("/onskepage")
+    public String onskePage(){
+        return "Onskepage";
+    }
 
 
 }
