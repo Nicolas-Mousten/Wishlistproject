@@ -20,7 +20,8 @@ public class Database {
         }
 
         public Connection connectDB() {
-            try{
+            try
+            {
                 con = DriverManager.getConnection(url,user,password);
                 System.out.println("We have a connection");
             }
@@ -37,20 +38,25 @@ public class Database {
             boolean isReserved = wish.getIsReserved();
             try {
                 stmt = con.createStatement();
-                String sqlString = "INSERT INTO `product` (product_id, product_name, product_price,isReserved) " +
-                        "VALUES (" + productId + "," + productName + "," + productPrice + "," + isReserved + ");";
+                String sqlString = "INSERT INTO `product` (product_id,product_name, product_price,isReserved) " +
+                        "VALUES (" + productId + ",'" + productName + "'," + productPrice + "," + isReserved + ");";
                 stmt.executeUpdate(sqlString);
                 stmt.close();
-
             } catch(Exception e) {
                 System.out.println("Query fail");
             }
-
         }
 
-        public void insertIntoWishList(){
-            String sqlString = "INSERT INTO `wish_list` ()values()";
-
+        public void insertIntoWishList(int id){
+            try {
+                stmt = con.createStatement();
+                String sqlString = "UPDATE `product` (product_id) VALUES " +
+                        "(" + id + ");";
+                stmt.executeUpdate(sqlString);
+                stmt.close();
+            } catch(Exception e) {
+                System.out.println("");
+            }
         }
 
 }

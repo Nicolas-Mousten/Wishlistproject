@@ -5,6 +5,14 @@ public class Wish {
     private String productName;
     private int productPrice;
     private boolean isReserved;
+    private long wishListId;
+
+    public Wish(int productId,String productName, int productPrice, long wishListId) {
+        this.productId = productId;
+        this.productName = productName;
+        this.productPrice = productPrice;
+        this.wishListId = wishListId;
+    }
 
     public int getProductId() {
         return productId;
@@ -23,6 +31,10 @@ public class Wish {
     public boolean getIsReserved() {return isReserved;}
 
     public void setIsReserved(boolean isReserved) {this.isReserved = isReserved;}
+
+    public long getWishListId() {
+        return wishListId;
+    }
 
     @Override
     public String toString() {
