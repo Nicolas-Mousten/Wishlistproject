@@ -19,7 +19,7 @@ public class Database {
             this.password = password;
         }
 
-        public void connectDB() {
+        public Connection connectDB() {
             try{
                 con = DriverManager.getConnection(url,user,password);
                 System.out.println("We have a connection");
@@ -45,6 +45,7 @@ public class Database {
             }
 
         }
+
         public void insertIntoWishList(){
             String sqlString = "INSERT INTO `wish_list` ()values()";
 
