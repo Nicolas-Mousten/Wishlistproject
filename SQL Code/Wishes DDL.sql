@@ -13,7 +13,6 @@ CREATE TABLE IF NOT EXISTS `product` (
 `product_id` INT(10) PRIMARY KEY,
 `product_name` VARCHAR(200),
 `product_price` DOUBLE (10,5),
-`isReserved` TINYINT(1),
 `wish_list_id` INT(10),
 foreign key(`wish_list_id`) references `wish_list`(`wish_list_id`)
 );
