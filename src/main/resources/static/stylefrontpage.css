@@ -4,23 +4,96 @@
 }
 
 body{
-    height: 2500px;
-    width: 100vh;
-    background-color: blue;
+    height: 100vh;
+    width: 100vw;
+    background-color: beige;
 
 }
 
 #headerbox{
-    height: 10px;
-    widht: 10px;
+    height: 10vh;
+    widht: 100vw;
+    display: flex;
+    flex-wrap: nowrap;
 
 
 }
 
 .headerboxleft{
-    background-color: antiquewhite;
+
+    background-color: blue;
+    height:15vh;
+    width: 50vw;
+    display: flex;
+    flex-wrap: wrap;
+
 
 }
-.headerboxright{
-    background-color: beige;
+#logo {
+    height: 15vh;
+    widht: 50vw;
 }
+
+h1{
+    font-size: 8vh;
+    font-family: "Bookman Old Style";
+}
+
+#headerboxtextbox{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-end;
+}
+
+.headerboxright{
+    background-color: red;
+    height: 15vh;
+    widht: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-end;
+    justify-content: space-between;
+    padding-left: 70vh;
+
+
+}
+.dropdown{
+  height: 5vh;
+    width: 5vw;
+}
+.dropdown1{
+    height: 5vh;
+    width: 5vw;
+
+}
+.dropdown2{
+    height: 5vh;
+    width: 5vw;
+
+}
+
+.tekstbuttons{
+    height: 10vh;
+    width: 10vw;
+    display:flex;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+    justify-content: space-between;
+
+}
+#firsttextbutton{
+    font-family: "Bookman Old Style";
+    font-weight: bolder;
+}
+#sectextbutton{
+    font-family: "Bookman Old Style";
+    font-weight: bolder;
+}
+#thirdtextbutton{
+    font-family: "Bookman Old Style";
+    font-weight: bolder;
+}
+
+
+
+
