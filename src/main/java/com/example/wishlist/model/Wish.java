@@ -20,7 +20,7 @@ public class Wish {
 
     public void setProductPrice(int productPrice) {this.productPrice = productPrice;}
 
-    public boolean isIsReserved() {return isReserved;}
+    public boolean getIsReserved() {return isReserved;}
 
     public void setIsReserved(boolean isReserved) {this.isReserved = isReserved;}
 

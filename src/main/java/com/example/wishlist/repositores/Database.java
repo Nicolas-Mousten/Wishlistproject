@@ -33,15 +33,16 @@ public class Database {
             int productId = wish.getProductId();
             String productName = wish.getProductName();
             double productPrice = wish.getProductPrice();
+            boolean isReserved = wish.getIsReserved();
             try {
                 stmt = con.createStatement();
                 String sqlString = "INSERT INTO `product` (product_id, product_name, product_price,isReserved) " +
-                        "VALUES ();";
+                        "VALUES (" + productId + "," + productName + "," + productPrice + "," + isReserved + ");";
                 stmt.executeUpdate(sqlString);
                 stmt.close();
 
             } catch(Exception e) {
-                System.out.println();
+                System.out.println("Query fail");
             }
 
         }
