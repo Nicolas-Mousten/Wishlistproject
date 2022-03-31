@@ -27,6 +27,7 @@ public class Database {
             catch(Exception e){
                 System.out.println("Failed Connection");
             }
+            return con;
         }
 
         public void insertIntoProduct(Wish wish){

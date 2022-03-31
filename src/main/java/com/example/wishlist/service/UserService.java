@@ -18,7 +18,7 @@ public class UserService {
         Connection con = db.connectDB();
         String stmt;
         try{
-            stmt =
+            stmt = con.
         }catch(Exception e){
 
         }
