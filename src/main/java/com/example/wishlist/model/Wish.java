@@ -1,36 +1,36 @@
 package com.example.wishlist.model;
 
 public class Wish {
-    private int product_id;
-    private String produc_name;
-    private int product_price;
-    private boolean is_reserved;
+    private int productId;
+    private String productName;
+    private int productPrice;
+    private boolean isReserved;
 
-    public int getProduct_id() {
-        return product_id;
+    public int getProductId() {
+        return productId;
     }
 
-    public void setProduct_id(int product_id) {this.product_id = product_id;}
+    public void setProductId(int productId) {this.productId = productId;}
 
-    public String getProduc_name() {return produc_name;}
+    public String getProducName() {return productName;}
 
-    public void setProduc_name(String produc_name) {this.produc_name = produc_name;}
+    public void setProductName(String productName) {this.productName = productName;}
 
-    public int getProduct_price() {return product_price;}
+    public int getProductPrice() {return productPrice;}
 
-    public void setProduct_price(int product_price) {this.product_price = product_price;}
+    public void setProductPrice(int productPrice) {this.productPrice = productPrice;}
 
-    public boolean isIs_reserved() {return is_reserved;}
+    public boolean isIsReserved() {return isReserved;}
 
-    public void setIs_reserved(boolean is_reserved) {this.is_reserved = is_reserved;}
+    public void setIsReserved(boolean isReserved) {this.isReserved = isReserved;}
 
     @Override
     public String toString() {
         return "Wish{" +
-                "product_id=" + product_id +
-                ", produc_name='" + produc_name + '\'' +
-                ", product_price=" + product_price +
-                ", is_reserved=" + is_reserved +
+                "product_id=" + productId +
+                ", produc_name='" + productName + '\'' +
+                ", product_price=" + productPrice +
+                ", is_reserved=" + isReserved +
                 '}';
     }
 }

@@ -12,8 +12,13 @@ public class Database {
         private Statement stmt;
 
         public Database(String url, String user, String password) {
+            this.url = url;
+            this.user = user;
+            this.password = password;
+        }
+
+        public void connectDB() {
             try{
-                this.url = url ;
                 con = DriverManager.getConnection(url,user,password);
                 System.out.println("We have a connection");
             }
@@ -23,7 +28,13 @@ public class Database {
         }
 
         public void insertIntoProduct(){
-            String sqlString = "INSERT INTO `product` (product_id, product_name, product_price,isReserved,wish_list_id)Values();";
+            try {
+                stmt =
+                String sqlString = "INSERT INTO `product` (product_id, product_name, product_price,isReserved) " +
+                        "VALUES ();";
+            } catch(Exception e) {
+                System.out.println();
+            }
 
         }
         public void insertIntoWishList(){
