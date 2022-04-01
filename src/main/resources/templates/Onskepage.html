@@ -1,19 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Front Page</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="onskepage.css">
+    <title></title>
+    <link rel="stylesheet" href="stylefrontpage.css">
+
 </head>
-<body style="margin: 0;">
-    <section>
-        <div class="flex-container-header">
-            <div class="flex-header">hello</div>
-            <div class="flex-header">hello</div>
-            <div class="flex-header">hello</div>
-            <div class="flex-header">hello</div>
+<body>
+
+<div id="headerbox">
+    <div class="headerboxleft">
+        <a>
+            <img src="giphyTo.gif" id="logo">
+        </a>
+        <div id="headerboxtextbox">
+            <h1>MAKE A WISH</h1>
         </div>
-    </section>
+    </div>
+    <div class="headerboxright">
+        <div class="dropdown"><a th:href="@{'Onskepage'}">
+            <button id="firsttextbutton">Wish selec</button>
+        </a>
+        </div>
+
+        <div class="dropdown">
+            <button id="sectextbutton" class="tekstbuttons">Create user</button>
+        </div>
+
+        <div class="dropdown">
+            <button id="thirdtextbutton" class="tekstbuttons">Know more</button>
+        </div>
+
+
+    </div>
+</div>
+
+<div class="divruler"></div>
+
 </body>
 </html>

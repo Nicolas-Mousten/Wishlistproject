@@ -6,15 +6,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class indexController {
 
-    @GetMapping("/hej")
+    @GetMapping("/")
     public String index(){
-        System.out.println("hello");
         return "Frontpage";
+
     }
-    @GetMapping("/onskepage")
+    @GetMapping("/hej")
     public String onskePage(){
         return "Onskepage";
     }
-
-
 }
+

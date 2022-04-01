@@ -2,37 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Ønskebyen</title>
+    <title></title>
     <link rel="stylesheet" href="stylefrontpage.css">
+
 </head>
 <body>
 
     <div id="headerbox">
     <div class="headerboxleft">
         <a>
-            <img src="makeawish.png" id="logo">
+            <img src="giphyTo.gif" id="logo">
         </a>
         <div id="headerboxtextbox">
             <h1>MAKE A WISH</h1>
         </div>
     </div>
         <div class="headerboxright">
-            <div class="tekstbuttons">
+            <div class="dropdown"><a th:href="@{'Onskepage'}">
+            <button id="firsttextbutton">Wish selec</button>
+            </a>
+        </div>
+
             <div class="dropdown">
-                <button class id="firsttextbutton">Wish selection</button>
+                <button id="sectextbutton" class="tekstbuttons">Create user</button>
             </div>
 
-            <div class="dropdown1">
-                <button class id="sectextbutton">Create user</button>
+            <div class="dropdown">
+                <button id="thirdtextbutton" class="tekstbuttons">Know more</button>
             </div>
 
-            <div class="dropdown2">
-                <button class id="thirdtextbutton">Know more</button>
-            </div>
-            </div>
 
         </div>
     </div>
+
+    <div class="divruler"></div>
 
     <div id="middlebigbox">
         <div id="middlebigboxleft">

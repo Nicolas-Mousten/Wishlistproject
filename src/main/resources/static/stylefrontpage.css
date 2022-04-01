@@ -6,7 +6,8 @@
 body{
     height: 100vh;
     width: 100vw;
-    background-color: beige;
+    background-image: url("Papertouch-i-beige-p.jpeg");
+    background-size: 100% 100%;
 
 }
 
@@ -16,12 +17,11 @@ body{
     display: flex;
     flex-wrap: nowrap;
 
-
 }
 
 .headerboxleft{
 
-    background-color: blue;
+    background-color: white;
     height:15vh;
     width: 50vw;
     display: flex;
@@ -37,6 +37,7 @@ body{
 h1{
     font-size: 8vh;
     font-family: "Bookman Old Style";
+    margin-left: 1vw;
 }
 
 #headerboxtextbox{
@@ -46,54 +47,65 @@ h1{
 }
 
 .headerboxright{
-    background-color: red;
+    background-color: white;
     height: 15vh;
     widht: 100vw;
     display: flex;
     flex-wrap: wrap;
     align-content: flex-end;
-    justify-content: space-between;
-    padding-left: 70vh;
+    text-align: justify;
+    padding-left: 40%;
+
 
 
 }
 .dropdown{
   height: 5vh;
     width: 5vw;
-}
-.dropdown1{
-    height: 5vh;
-    width: 5vw;
+    display: inline-block;
+    justify-content: space-around;
+    padding-right: 1vw;
 
-}
-.dropdown2{
-    height: 5vh;
-    width: 5vw;
 
 }
 
-.tekstbuttons{
-    height: 10vh;
-    width: 10vw;
-    display:flex;
-    flex-wrap: nowrap;
-    align-items: flex-end;
-    justify-content: space-between;
-
-}
 #firsttextbutton{
     font-family: "Bookman Old Style";
     font-weight: bolder;
+    font-size: 140%;
+    white-space: nowrap;
+    text-align: center;
+    transform: translateX(-15vw);
+
 }
 #sectextbutton{
     font-family: "Bookman Old Style";
     font-weight: bolder;
+    font-size: 140%;
+    white-space: nowrap;
+    text-align: center;
+    transform: translateX(-12vw);
+
+
+
 }
 #thirdtextbutton{
     font-family: "Bookman Old Style";
     font-weight: bolder;
+    font-size: 140%;
+    white-space: nowrap;
+    text-align: center;
+
+
 }
 
+.divruler{
+    height: 0.5vh;
+    width: 80%;
+    background-color: black;
+    margin-left:5vw;
+    margin-top:8vh;
+}
 
 
 
