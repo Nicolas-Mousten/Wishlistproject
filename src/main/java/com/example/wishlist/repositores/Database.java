@@ -20,7 +20,7 @@ public class Database {
         this.password = password;
     }
 
-    public Connection connectDB() {
+    public void connectDB() {
         try
         {
             con = DriverManager.getConnection(url,user,password);
@@ -29,7 +29,6 @@ public class Database {
         catch(Exception e){
             System.out.println("Failed Connection");
         }
-        return con;
     }
 
     public void insertIntoProduct(Wish wish){
@@ -63,20 +62,23 @@ public class Database {
     public void insertUser(String userEmail, String userPassword){
 
     }
-    public void selectUserEmail(String email){
+    public String selectUserEmail(String email){
+        ResultSet rs;
+        connectDB();
         try{
             stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_READ_ONLY);
             String sqlStr = "SELECT * FROM `user` where `email`=\""+email+"\"";
-            ResultSet rs = stmt.executeQuery(sqlStr);
+            rs = stmt.executeQuery(sqlStr);
             rs.next();
-            System.out.println(rs.getString(1));
+            return rs.getString(1);
 
         }catch (Exception e){
-            System.out.println(e);
-            System.out.println("Something went wrong");
+            System.out.println("Email does not exist");
         }
+        return null;
     }
+
     public void removeFromWishList(int productId) {
         try {
             stmt = con.createStatement();
