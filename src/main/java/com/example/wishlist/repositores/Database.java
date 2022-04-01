@@ -2,10 +2,7 @@ package com.example.wishlist.repositores;
 
 import com.example.wishlist.model.Wish;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 
 public class Database {
     private Connection con;
@@ -20,7 +17,7 @@ public class Database {
         this.password = password;
     }
 
-    public Connection connectDB() {
+    private void connectDB() {
         try
         {
             con = DriverManager.getConnection(url,user,password);
@@ -29,15 +26,15 @@ public class Database {
         catch(Exception e){
             System.out.println("Failed Connection");
         }
-        return con;
     }
 
-    public void insertIntoProduct(Wish wish){
+    public void insertIntoProduct(Wish wish) throws SQLException {
         int productId = wish.getProductId();
         String productName = wish.getProductName();
         double productPrice = wish.getProductPrice();
         boolean isReserved = wish.getIsReserved();
         try {
+            connectDB();
             stmt = con.createStatement();
             String sqlString = "INSERT INTO `product` (product_id,product_name, product_price,isReserved) " +
                     "VALUES (" + productId + ",'" + productName + "'," + productPrice + "," + isReserved + ");";
@@ -45,19 +42,23 @@ public class Database {
             stmt.close();
         } catch(Exception e) {
             System.out.println("Query fail");
+        } finally {
+            stmt.close();
         }
     }
 
-    public void insertIntoWishList(int wishListId, int productId) {
+    public void insertIntoWishList(int wishListId, int productId) throws SQLException {
         try {
+            connectDB();
             stmt = con.createStatement();
             String sqlString = "UPDATE `product` " +
                     "SET wish_list_id = " + wishListId +
                     "WHERE product_id = " + productId + ";";
             stmt.executeUpdate(sqlString);
-            stmt.close();
         } catch (Exception e) {
             System.out.println("");
+        } finally {
+            stmt.close();
         }
     }
     public void insertUser(String userEmail, String userPassword){
@@ -77,15 +78,16 @@ public class Database {
             System.out.println("Something went wrong");
         }
     }
-    public void removeFromWishList(int productId) {
+    public void removeFromWishList(int productId) throws SQLException {
         try {
             stmt = con.createStatement();
             String sqlString = "DELETE FROM `product` " +
                     "WHERE product_id = " + productId;
             stmt.executeUpdate(sqlString);
-            stmt.close();
         } catch(Exception e) {
-            System.out.println("");
+            System.out.println("Query fail");
+        } finally {
+            stmt.close();
         }
     }
 }
