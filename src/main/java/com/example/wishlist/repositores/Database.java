@@ -62,15 +62,17 @@ public class Database {
             stmt.close();
         }
     }
-    public void insertUser(String userEmail, String userPassword){
+    public void insertUser(String userEmail, String userPassword) throws SQLException {
         try{
             connectDB();
             stmt = con.createStatement();
             String sqlString = "INSERT INTO `user`(`email`,`password`) Values" +
-                    "("+userEmail+","+userPassword+");";
+                    "('"+userEmail+"','"+userPassword+"');";
             stmt.executeUpdate(sqlString);
         }catch(Exception e){
             System.out.println(e);
+        } finally{
+            stmt.close();
         }
     }
     public String selectUserEmail(String email){
@@ -82,7 +84,11 @@ public class Database {
             String sqlStr = "SELECT * FROM `user` where `email`=\""+email+"\"";
             rs = stmt.executeQuery(sqlStr);
             rs.next();
-            return rs.getString(1);
+            String output = "";
+            output += rs.getString(1);
+            output += ",";
+            output += rs.getString(2);
+            return output;
 
         }catch (Exception e){
             System.out.println("Email does not exist");

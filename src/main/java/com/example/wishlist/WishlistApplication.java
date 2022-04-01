@@ -12,7 +12,8 @@ public class WishlistApplication {
 
         /*db.insertIntoProduct(new Wish(5687,"computer",145,1578));*/
         SpringApplication.run(WishlistApplication.class, args);
-        UserService.emailIsTaken("nicolas.mousten@gmail.com","iAmStupid");
+        UserService.emailIsTaken("tobias@gmail.com","iAmStupid");
+        UserService.logIn("tobias@gmail.com","iAmStupid");
     }
 
 }
