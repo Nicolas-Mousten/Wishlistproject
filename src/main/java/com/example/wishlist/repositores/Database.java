@@ -7,57 +7,68 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 
 public class Database {
-        private Connection con;
-        private String url;
-        private String password;
-        private String user;
-        private Statement stmt;
+    private Connection con;
+    private String url;
+    private String password;
+    private String user;
+    private Statement stmt;
 
-        public Database(String url, String user, String password) {
-            this.url = url;
-            this.user = user;
-            this.password = password;
+    public Database(String url, String user, String password) {
+        this.url = url;
+        this.user = user;
+        this.password = password;
+    }
+
+    public Connection connectDB() {
+        try
+        {
+            con = DriverManager.getConnection(url,user,password);
+            System.out.println("We have a connection");
         }
-
-        public Connection connectDB() {
-            try
-            {
-                con = DriverManager.getConnection(url,user,password);
-                System.out.println("We have a connection");
-            }
-            catch(Exception e){
-                System.out.println("Failed Connection");
-            }
-            return con;
+        catch(Exception e){
+            System.out.println("Failed Connection");
         }
+        return con;
+    }
 
-        public void insertIntoProduct(Wish wish){
-            int productId = wish.getProductId();
-            String productName = wish.getProductName();
-            double productPrice = wish.getProductPrice();
-            boolean isReserved = wish.getIsReserved();
-            try {
-                stmt = con.createStatement();
-                String sqlString = "INSERT INTO `product` (product_id,product_name, product_price,isReserved) " +
-                        "VALUES (" + productId + ",'" + productName + "'," + productPrice + "," + isReserved + ");";
-                stmt.executeUpdate(sqlString);
-                stmt.close();
-            } catch(Exception e) {
-                System.out.println("Query fail");
-            }
+    public void insertIntoProduct(Wish wish){
+        int productId = wish.getProductId();
+        String productName = wish.getProductName();
+        double productPrice = wish.getProductPrice();
+        boolean isReserved = wish.getIsReserved();
+        try {
+            stmt = con.createStatement();
+            String sqlString = "INSERT INTO `product` (product_id,product_name, product_price,isReserved) " +
+                    "VALUES (" + productId + ",'" + productName + "'," + productPrice + "," + isReserved + ");";
+            stmt.executeUpdate(sqlString);
+            stmt.close();
+        } catch(Exception e) {
+            System.out.println("Query fail");
         }
+    }
 
-        public void insertIntoWishList(int id){
-            try {
-                stmt = con.createStatement();
-                String sqlString = "UPDATE `product` (product_id) VALUES " +
-                        "(" + id + ");";
-                stmt.executeUpdate(sqlString);
-                stmt.close();
-            } catch(Exception e) {
-                System.out.println("");
-            }
+    public void insertIntoWishList(int wishListId, int productId){
+        try {
+            stmt = con.createStatement();
+            String sqlString = "UPDATE `product` " +
+                                "SET wish_list_id = " + wishListId +
+                                "WHERE product_id = " + productId + ";";
+            stmt.executeUpdate(sqlString);
+            stmt.close();
+        } catch(Exception e) {
+            System.out.println("");
         }
-
+    }
+    public void removeFromWishList(int productId) {
+        try {
+            stmt = con.createStatement();
+            String sqlString = "DELETE FROM `product` " +
+                    "WHERE product_id = " + productId;
+            stmt.executeUpdate(sqlString);
+            stmt.close();
+        } catch(Exception e) {
+            System.out.println("");
+        }
+    }
 }
 
