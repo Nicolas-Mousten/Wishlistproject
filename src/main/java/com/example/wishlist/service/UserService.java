@@ -19,11 +19,12 @@ public class UserService {
             String password = validation.substring(divider+1);
             if(userPassword.equals(password)){
                 System.out.println("Welcome "+userEmail);
+                return true;
             }else{
                 System.out.println("Wrong Password");
+                return false;
             }
         }
-        return false;
     }
     public static void emailIsTaken(String userEmail, String userPassword){
         Database db = new Database("jdbc:mysql://127.0.0.1:3306/wishlists","root","Uvnx3gxc");
