@@ -75,7 +75,7 @@ h1{
     font-size: 140%;
     white-space: nowrap;
     text-align: center;
-    transform: translateX(-15vw);
+    transform: translateX(-20vw);
 
 }
 #sectextbutton{
@@ -84,7 +84,7 @@ h1{
     font-size: 140%;
     white-space: nowrap;
     text-align: center;
-    transform: translateX(-12vw);
+    transform: translateX(-15vw);
 
 
 
@@ -95,6 +95,7 @@ h1{
     font-size: 140%;
     white-space: nowrap;
     text-align: center;
+    transform: translateX(-2vw);
 
 
 }
