@@ -26,7 +26,6 @@ public class Database {
         catch(Exception e){
             System.out.println("Failed Connection");
         }
-        return con;
     }
 
     public void insertIntoProduct(Wish wish) throws SQLException {
@@ -64,7 +63,13 @@ public class Database {
         }
     }
     public void insertUser(String userEmail, String userPassword){
-
+        try{
+            connectDB();
+            stmt = con.createStatement();
+            String sqlString = "";
+        }catch(Exception e){
+            System.out.println(e);
+        }
     }
     public String selectUserEmail(String email){
         ResultSet rs;

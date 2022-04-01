@@ -22,7 +22,7 @@ public class UserService {
         }else{
             System.out.println("this email is taken");
         }
-        //check if email exist in database.
+        //check if email exist in database. Done!
 
         //create user if email is not in database
     }
