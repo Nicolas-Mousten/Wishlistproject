@@ -11,6 +11,7 @@ public class WishlistApplication {
     public static void main(String[] args) {
         Database db = new Database("jdbc:mysql://127.0.0.1:3306/wishlists","root","Uvnx3gxc");
         db.connectDB();
+        db.selectUserEmail("nicolas.mousten@gmail.com");
         SpringApplication.run(WishlistApplication.class, args);
     }
 

@@ -4,6 +4,7 @@ import com.example.wishlist.model.Wish;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class Database {
@@ -51,6 +52,23 @@ public class Database {
         public void insertIntoWishList(){
             String sqlString = "INSERT INTO `wish_list` ()values()";
 
+        }
+        public void insertUser(String userEmail, String userPassword){
+
+        }
+        public void selectUserEmail(String email){
+            try{
+                stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
+                        ResultSet.CONCUR_READ_ONLY);
+                String sqlStr = "SELECT * FROM `user` where `email`=\""+email+"\"";
+                ResultSet rs = stmt.executeQuery(sqlStr);
+                rs.next();
+                System.out.println(rs.getString(1));
+
+            }catch (Exception e){
+                System.out.println(e);
+                System.out.println("Something went wrong");
+            }
         }
 
 }
