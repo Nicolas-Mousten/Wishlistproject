@@ -66,7 +66,9 @@ public class Database {
         try{
             connectDB();
             stmt = con.createStatement();
-            String sqlString = "";
+            String sqlString = "INSERT INTO `user`(`email`,`password`) Values" +
+                    "("+userEmail+","+userPassword+");";
+            stmt.executeUpdate(sqlString);
         }catch(Exception e){
             System.out.println(e);
         }
