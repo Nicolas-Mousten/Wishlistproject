@@ -48,35 +48,34 @@ public class Database {
         }
     }
 
-    public void insertIntoWishList(int wishListId, int productId){
+    public void insertIntoWishList(int wishListId, int productId) {
         try {
             stmt = con.createStatement();
             String sqlString = "UPDATE `product` " +
-                                "SET wish_list_id = " + wishListId +
-                                "WHERE product_id = " + productId + ";";
+                    "SET wish_list_id = " + wishListId +
+                    "WHERE product_id = " + productId + ";";
             stmt.executeUpdate(sqlString);
             stmt.close();
-        } catch(Exception e) {
+        } catch (Exception e) {
             System.out.println("");
         }
-        public void insertUser(String userEmail, String userPassword){
+    }
+    public void insertUser(String userEmail, String userPassword){
 
+    }
+    public void selectUserEmail(String email){
+        try{
+            stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
+                    ResultSet.CONCUR_READ_ONLY);
+            String sqlStr = "SELECT * FROM `user` where `email`=\""+email+"\"";
+            ResultSet rs = stmt.executeQuery(sqlStr);
+            rs.next();
+            System.out.println(rs.getString(1));
+
+        }catch (Exception e){
+            System.out.println(e);
+            System.out.println("Something went wrong");
         }
-        public void selectUserEmail(String email){
-            try{
-                stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
-                        ResultSet.CONCUR_READ_ONLY);
-                String sqlStr = "SELECT * FROM `user` where `email`=\""+email+"\"";
-                ResultSet rs = stmt.executeQuery(sqlStr);
-                rs.next();
-                System.out.println(rs.getString(1));
-
-            }catch (Exception e){
-                System.out.println(e);
-                System.out.println("Something went wrong");
-            }
-        }
-
     }
     public void removeFromWishList(int productId) {
         try {
