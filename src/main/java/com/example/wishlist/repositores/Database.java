@@ -5,19 +5,20 @@ import com.example.wishlist.model.Wish;
 import java.sql.*;
 
 public class Database {
-    private Connection con;
-    private String url;
-    private String password;
-    private String user;
-    private Statement stmt;
+    private static Connection con;
+    private static String url;
+    private static String password;
+    private static String user;
+    private static Statement stmt;
 
     public Database(String url, String user, String password) {
-        this.url = url;
-        this.user = user;
-        this.password = password;
+        Database.url = url;
+        Database.user = user;
+        Database.password = password;
+        connectDB();
     }
 
-    private void connectDB() {
+    private static void connectDB() {
         try
         {
             con = DriverManager.getConnection(url,user,password);
@@ -28,13 +29,12 @@ public class Database {
         }
     }
 
-    public void insertIntoProduct(Wish wish) throws SQLException {
+    public static void insertIntoProduct(Wish wish) throws SQLException {
         int productId = wish.getProductId();
         String productName = wish.getProductName();
         double productPrice = wish.getProductPrice();
         boolean isReserved = wish.getIsReserved();
         try {
-            connectDB();
             stmt = con.createStatement();
             String sqlString = "INSERT INTO `product` (product_id,product_name, product_price,isReserved) " +
                     "VALUES (" + productId + ",'" + productName + "'," + productPrice + "," + isReserved + ");";
@@ -47,24 +47,21 @@ public class Database {
         }
     }
 
-    public void insertIntoWishList(int wishListId, int productId) throws SQLException {
+    public static void insertIntoWishList(int wishListId, int productId) throws SQLException {
         try {
-            connectDB();
             stmt = con.createStatement();
             String sqlString = "UPDATE `product` " +
                     "SET wish_list_id = " + wishListId +
                     "WHERE product_id = " + productId + ";";
             stmt.executeUpdate(sqlString);
-            stmt.close();
         } catch (Exception e) {
             System.out.println("");
         } finally {
             stmt.close();
         }
     }
-    public void insertUser(String userEmail, String userPassword) throws SQLException {
+    public static void insertUser(String userEmail, String userPassword) throws SQLException {
         try{
-            connectDB();
             stmt = con.createStatement();
             String sqlString = "INSERT INTO `user`(`email`,`password`) Values" +
                     "('"+userEmail+"','"+userPassword+"');";
@@ -75,9 +72,8 @@ public class Database {
             stmt.close();
         }
     }
-    public String selectUserEmail(String email){
+    public static String selectUserEmail(String email) throws SQLException {
         ResultSet rs;
-        connectDB();
         try{
             stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_READ_ONLY);
@@ -92,10 +88,12 @@ public class Database {
 
         }catch (Exception e){
             System.out.println("Email does not exist");
+        } finally {
+            stmt.close();
         }
         return null;
     }
-    public void removeFromWishList(int productId) throws SQLException {
+    public static void removeFromWishList(int productId) throws SQLException {
         try {
             stmt = con.createStatement();
             String sqlString = "DELETE FROM `product` " +

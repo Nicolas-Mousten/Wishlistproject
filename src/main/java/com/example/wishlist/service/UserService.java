@@ -1,16 +1,15 @@
 package com.example.wishlist.service;
 
 import com.example.wishlist.repositores.Database;
-
+import com.example.wishlist.WishlistApplication;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 public class UserService {
 
-    public static boolean logIn(String userEmail, String userPassword){
-        Database db = new Database("jdbc:mysql://127.0.0.1:3306/wishlists","root","Uvnx3gxc");
-        String validation = db.selectUserEmail(userEmail);
+    public static boolean logIn(String userEmail, String userPassword) throws SQLException {
+        String validation = Database.selectUserEmail(userEmail);
         if(validation == null){
             return false;
         }else{
@@ -26,19 +25,21 @@ public class UserService {
             }
         }
     }
-    public static void emailIsTaken(String userEmail, String userPassword){
-        Database db = new Database("jdbc:mysql://127.0.0.1:3306/wishlists","root","Uvnx3gxc");
-        String validation = db.selectUserEmail(userEmail);
+
+    public static boolean isEmailTaken(String userEmail, String userPassword) throws SQLException {
+        String validation = Database.selectUserEmail(userEmail);
         System.out.println(validation);
         if(validation == null){
             try {
-                db.insertUser(userEmail, userPassword);
+                Database.insertUser(userEmail, userPassword);
             }catch (SQLException e){
                 System.out.println(e);
             }
         }else{
             System.out.println("this email is taken");
+            return true;
         }
+        return false;
         //check if email exist in database. Done!
 
         //create user if email is not in database
