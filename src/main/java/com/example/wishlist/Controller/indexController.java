@@ -3,6 +3,7 @@ package com.example.wishlist.Controller;
 
 import com.example.wishlist.service.UserService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.context.request.WebRequest;
@@ -23,24 +24,37 @@ public class indexController {
         return "Onskepage";
     }
 
-    @PostMapping("/sign-up")
-    public String signUp(WebRequest dataFromForm)
+    @GetMapping("/LoginPage")
+    public String loginPage()
+    {
+        return "LoginPage";
+    }
+
+    @GetMapping("/SignUpPage")
+    public String signOpPage(){
+        return "SignUpPage";
+    }
+
+    @PostMapping("/signup")
+    public String signup(WebRequest dataFromForm)
     {
         String email = dataFromForm.getParameter("email");
         String name = dataFromForm.getParameter("name");
         String password = dataFromForm.getParameter("pwd");
         try {
-            UserService.isEmailTaken(email, password);
+             emailIsTaken = UserService.isEmailTaken(email, password);
         } catch (Exception e) {
             System.out.println(e);
         }
         return "redirect:/LoginPage";
     }
-
-    @GetMapping("/LoginPage")
-    public String loginPage(WebRequest dataFromForm)
-    {
-        return "LoginPage";
+    private boolean emailIsTaken;
+    @GetMapping("/emailTaken")
+    public String emailTaken(Model model){
+        model.addAttribute("emailIsTaken",emailIsTaken);
+        return "SignUpPage";
     }
+
+
 }
 
