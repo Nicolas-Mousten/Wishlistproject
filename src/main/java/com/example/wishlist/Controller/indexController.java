@@ -1,17 +1,15 @@
 package com.example.wishlist.Controller;
 
-import com.example.wishlist.repositores.Database;
+
 import com.example.wishlist.service.UserService;
-import com.example.wishlist.WishlistApplication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.WebRequest;
 
-import java.sql.SQLException;
 
-@RestController
+@Controller
 public class indexController {
 
     @GetMapping("/")
@@ -20,7 +18,7 @@ public class indexController {
         return "Frontpage";
     }
 
-    @GetMapping("/oenskeside")
+    @GetMapping("/hej")
     public String onskePage()
     {
         return "Onskepage";

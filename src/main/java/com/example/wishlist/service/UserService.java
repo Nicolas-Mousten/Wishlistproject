@@ -40,8 +40,5 @@ public class UserService {
             return true;
         }
         return false;
-        //check if email exist in database. Done!
-
-        //create user if email is not in database
     }
 }
