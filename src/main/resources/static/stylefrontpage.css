@@ -17,9 +17,9 @@ nav{
     display: flex;
     justify-content: flex-end;
     padding-right: 20vh;
-
-
+    align-content: flex-end;
 }
+
 
 
 .headerboxleft{
@@ -66,7 +66,11 @@ h1{
     height: 5vh;
     align-self: flex-end;
     margin-bottom: 1.5vh;
+}
 
+.navbuttons a{
+    text-decoration-line: none;
+    color: black;
 }
 
 

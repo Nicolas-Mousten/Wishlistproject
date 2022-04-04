@@ -2,13 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
-    <link rel="stylesheet" href="stylefrontpage.css">
+    <title>Front Page</title>
+    <link rel="stylesheet" href="Onskepage.css">
 
 </head>
-<body>
-
-<div id="headerbox">
+<header>
     <div class="headerboxleft">
         <a>
             <img src="giphyTo.gif" id="logo">
@@ -17,22 +15,13 @@
             <h1>MAKE A WISH</h1>
         </div>
     </div>
-    <div class="headerboxright">
-        <div class="dropdown"><a th:href="@{'Onskepage'}">
-            <button id="firsttextbutton">Wish selec</button>
-        </a>
-        </div>
 
-        <div class="dropdown">
-            <button id="sectextbutton" class="tekstbuttons">Create user</button>
-        </div>
-        <div class="dropdown">
-            <button id="thirdtextbutton" class="tekstbuttons">Know more</button>
-        </div>
-    </div>
-
-</div>
-
+    <nav>
+        <button id="firsttextbutton" class="navbuttons"><a href="Onskepage">Wish selec</a></button>
+        <button id="sectextbutton" class="navbuttons"><a href="SignUpPage">Signup</a></button>
+        <button id="thirdtextbutton" class="navbuttons"> <a href="Frontpage">know more</a></button>
+    </nav>
+</header>
 
 
 </body>
