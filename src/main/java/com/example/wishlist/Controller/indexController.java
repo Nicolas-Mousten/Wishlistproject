@@ -53,13 +53,24 @@ public class indexController {
             return "redirect:/";
         }
     }
-    /*
+
     @PostMapping("/login")
     public String logIn(WebRequest dataFromForm){
         String email = dataFromForm.getParameter("email");
         String password = dataFromForm.getParameter("pwd");
+        Boolean loginStatus = false;
+        try {
+            loginStatus = UserService.logIn(email, password);
+        }catch(Exception e){
+            System.out.println(e);
+        }
+        if(loginStatus == true){
+            return "redirect:/hej";                         //Place redirect place into code
+        }else{
+            return "redirect:/";
+        }
     }
-*/
+
     @GetMapping("/emailTaken")
     public String emailTaken(Model model){
         String output;
