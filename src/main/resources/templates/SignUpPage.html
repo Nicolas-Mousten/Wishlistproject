@@ -3,31 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Front Page</title>
-    <link rel="stylesheet" href="SignUpCSS.css">
+    <link rel="stylesheet" href="stylefrontpage.css">
 
 </head>
-<body>
-
-<div id="headerbox">
+<header>
     <div class="headerboxleft">
-        <a><img src="giphyTo.gif" id="logo"></a>
+        <a>
+            <img src="giphyTo.gif" id="logo">
+        </a>
         <div id="headerboxtextbox">
             <h1>MAKE A WISH</h1>
         </div>
     </div>
-    <div class="headerboxright">
-        <div class="dropdown">
-            <a th:href="@{'Onskepage'}"><button id="firsttextbutton">Wish select</button></a>
-        </div>
-        <div class="dropdown">
-            <button id="sectextbutton" class="tekstbuttons">Create user</button>
-        </div>
 
-        <div class="dropdown">
-            <button id="thirdtextbutton" class="tekstbuttons">Know more</button>
-        </div>
-    </div>
-</div>
+    <nav>
+        <button id="firsttextbutton" class="navbuttons">Wish selec</button>
+
+
+        <button id="sectextbutton" class="navbuttons">Create user</button>
+
+
+        <button id="thirdtextbutton" class="navbuttons">Know more</button>
+
+
+    </nav>
+</header>
 
 
 
