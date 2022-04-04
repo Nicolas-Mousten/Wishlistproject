@@ -24,12 +24,6 @@ public class indexController {
         return "Onskepage";
     }
 
-    @GetMapping("/LoginPage")
-    public String loginPage()
-    {
-        return "LoginPage";
-    }
-
     @GetMapping("/SignUpPage")
     public String signOpPage(){
         return "SignUpPage";
@@ -56,7 +50,11 @@ public class indexController {
 
     }
 
-
+    @PostMapping("/addToWishList")
+    public String addToWishList(WebRequest dataFromForm) {
+        String wishId = dataFromForm.getParameter("wishId");
+        return "redirect:/oenskepage";
+    }
     @GetMapping("/emailTaken")
     public String emailTaken(Model model){
         String output;

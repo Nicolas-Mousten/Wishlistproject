@@ -7,6 +7,7 @@ drop table if exists`wish_list`;
 CREATE TABLE IF NOT EXISTS `wish_list` (
 `wish_list_id` INT(10) PRIMARY key AUTO_INCREMENT,
 `wish_list_name` VARCHAR(200)
+foreign key (`email`) references `user` (`email`)
 );
 
 CREATE TABLE IF NOT EXISTS `product` (
