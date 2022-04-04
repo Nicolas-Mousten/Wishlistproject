@@ -3,29 +3,32 @@
     padding:0;
 }
 
-body{
-    height: 100vh;
-    width: 100vw;
-    background-image: url("Papertouch-i-beige-p.jpeg");
-    background-size: 100% 100%;
-
-}
-
-#headerbox{
-    height: 10vh;
-    widht: 100vw;
+header{
+    width: 100%;
     display: flex;
-    flex-wrap: nowrap;
+   flex-direction: row;
+}
+
+nav{
+
+    background-color: white;
+    height: 15vh;
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20vh;
+
 
 }
+
 
 .headerboxleft{
 
     background-color: white;
     height:15vh;
-    width: 50vw;
-    display: flex;
-    flex-wrap: wrap;
+    width: 50%;
+   display: flex;
+    flex-wrap: nowrap;
 
 
 }
@@ -35,78 +38,45 @@ body{
 }
 
 h1{
-    font-size: 500%;
+    font-size: 350%;
     font-family: "Bookman Old Style";
     margin-left: 1vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+
+
+
 
 }
-
 #headerboxtextbox{
     display: flex;
     flex-wrap: wrap;
     align-content: flex-end;
 }
 
-.headerboxright{
-    background-color: white;
-    height: 15vh;
-    widht: 100vw;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-end;
-    text-align: justify;
-    padding-left: 40%;
 
-
-
-}
-.dropdown{
-  height: 5vh;
-    width: 5vw;
-    display: inline-block;
-    justify-content: space-around;
-    padding-right: 1vw;
-
-
-}
-
-#firsttextbutton{
+.navbuttons{
     font-family: "Bookman Old Style";
     font-weight: bolder;
     font-size: 140%;
     white-space: nowrap;
     text-align: center;
-    transform: translateX(-20vw);
-
-}
-#sectextbutton{
-    font-family: "Bookman Old Style";
-    font-weight: bolder;
-    font-size: 140%;
-    white-space: nowrap;
-    text-align: center;
-    transform: translateX(-15vw);
-
-
-
-}
-#thirdtextbutton{
-    font-family: "Bookman Old Style";
-    font-weight: bolder;
-    font-size: 140%;
-    white-space: nowrap;
-    text-align: center;
-    transform: translateX(-2vw);
-
+    width: 10vw;
+    height: 5vh;
+    align-self: flex-end;
+    margin-bottom: 1.5vh;
 
 }
 
-.divruler{
-    height: 0.5vh;
-    width: 80%;
-    background-color: black;
-    margin-left:5vw;
-    margin-top:8vh;
+
+body{
+    height: 100vh;
+    width: 100vw;
+    background-image: url("Papertouch-i-beige-p.jpeg");
+    background-size: 100% 100%;
+
+
 }
 
 .contentTop{
