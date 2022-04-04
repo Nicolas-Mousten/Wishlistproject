@@ -12,7 +12,7 @@ public class UserService {
         String validation = Database.selectUserEmail(userEmail);
         if(validation == null){
             return false;
-        }else{
+        } else{
             //check if the password is the one that belongs to that email.
             int divider = validation.indexOf(",");
             String password = validation.substring(divider+1);

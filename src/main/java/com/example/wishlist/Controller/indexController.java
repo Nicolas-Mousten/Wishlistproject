@@ -24,16 +24,12 @@ public class indexController {
         return "Onskepage";
     }
 
-    @GetMapping("/LoginPage")
-    public String loginPage()
-    {
-        return "LoginPage";
-    }
-
     @GetMapping("/SignUpPage")
     public String signOpPage(){
         return "SignUpPage";
     }
+
+    @PostMapping("")
 
     @PostMapping("/signup")
     public String signup(WebRequest dataFromForm)
@@ -54,7 +50,5 @@ public class indexController {
         model.addAttribute("emailIsTaken",emailIsTaken);
         return "SignUpPage";
     }
-
-
 }
 

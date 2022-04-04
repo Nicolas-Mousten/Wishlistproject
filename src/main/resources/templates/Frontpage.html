@@ -32,9 +32,13 @@
 
 
     <div class="contentTop">
-        <div class="logInButton">
-            <a href=""><button style="border: none;">Log in</button></a>
-        </div>
+        <form action="/login" method="POST">
+            <label for="email-login">Email: </label>
+            <input type="text" id="email-login" name="email"/>
+            <label for="pwd-login">Password: </label>
+            <input type="password" id="pwd-login" name="pwd" />
+            <button type="submit">Submit</button>
+        </form>
     </div>
 
     <div class="contentBottom">
