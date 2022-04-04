@@ -1,12 +1,15 @@
 package com.example.wishlist.Controller;
 
 
+import com.example.wishlist.repositores.Database;
 import com.example.wishlist.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.context.request.WebRequest;
+
+import java.sql.SQLException;
 
 
 @Controller
@@ -55,6 +58,7 @@ public class indexController {
         Boolean loginStatus = false;
         try {
             loginStatus = UserService.logIn(email, password);
+            Database.setActiveUserSession(email);
         }catch(Exception e){
             System.out.println(e);
         }
@@ -67,7 +71,12 @@ public class indexController {
 
     @PostMapping("/addToWishList")
     public String addToWishList(WebRequest dataFromForm) {
-        String wishId = dataFromForm.getParameter("wishId");
+        String productId = dataFromForm.getParameter("productId");
+        try {
+            Database.insertIntoWishList(Database.getActiveUserSession(), productId);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
         return "redirect:/oenskepage";
     }
     @GetMapping("/emailTaken")

@@ -1,13 +1,13 @@
 package com.example.wishlist.model;
 
-public class Wish {
+public class Product {
     private int productId;
     private String productName;
     private int productPrice;
     private boolean isReserved;
     private long wishListId;
 
-    public Wish(int productId,String productName, int productPrice, long wishListId) {
+    public Product(int productId,String productName, int productPrice, long wishListId) {
         this.productId = productId;
         this.productName = productName;
         this.productPrice = productPrice;
@@ -38,7 +38,7 @@ public class Wish {
 
     @Override
     public String toString() {
-        return "Wish{" +
+        return "Product{" +
                 "product_id=" + productId +
                 ", produc_name='" + productName + '\'' +
                 ", product_price=" + productPrice +

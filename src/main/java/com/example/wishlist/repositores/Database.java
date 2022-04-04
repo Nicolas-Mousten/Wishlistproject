@@ -1,6 +1,7 @@
 package com.example.wishlist.repositores;
 
-import com.example.wishlist.model.Wish;
+import com.example.wishlist.model.Product;
+import com.mysql.cj.protocol.Resultset;
 
 import java.sql.*;
 
@@ -10,6 +11,7 @@ public class Database {
     private static String password;
     private static String user;
     private static Statement stmt;
+    private static String activeUserSession;
 
     public Database(String url, String user, String password) {
         Database.url = url;
@@ -29,11 +31,11 @@ public class Database {
         }
     }
 
-    public static void insertIntoProduct(Wish wish) throws SQLException {
-        int productId = wish.getProductId();
-        String productName = wish.getProductName();
-        double productPrice = wish.getProductPrice();
-        boolean isReserved = wish.getIsReserved();
+    public static void insertIntoProduct(Product product) throws SQLException {
+        int productId = product.getProductId();
+        String productName = product.getProductName();
+        double productPrice = product.getProductPrice();
+        boolean isReserved = product.getIsReserved();
         try {
             stmt = con.createStatement();
             String sqlString = "INSERT INTO `product` (product_id,product_name, product_price,isReserved) " +
@@ -47,19 +49,37 @@ public class Database {
         }
     }
 
-    public static void insertIntoWishList(int wishListId, int productId) throws SQLException {
+    public static void insertIntoWishList(String email, String productId) throws SQLException {
         try {
             stmt = con.createStatement();
             String sqlString = "UPDATE `product` " +
-                    "SET wish_list_id = " + wishListId +
+                    "SET wish_list_id = " + getWishListId(email) +
                     "WHERE product_id = " + productId + ";";
             stmt.executeUpdate(sqlString);
         } catch (Exception e) {
-            System.out.println("");
+            System.out.println("Product was not iserted into wish list");
         } finally {
             stmt.close();
         }
     }
+
+    public static String getWishListId(String email) throws SQLException {
+        ResultSet rs = null;
+        try {
+            stmt = con.createStatement();
+            String sqlString = "SELECT wish_list_id FROM wish_list WHERE email ='" + email + "'";
+            rs = stmt.executeQuery(sqlString);
+        } catch(Exception e) {
+            System.out.println("Query fail");
+        } finally {
+            stmt.close();
+        }
+        assert rs != null;
+        return rs.getString("wish_list_id");
+    }
+
+
+
     public static void insertUser(String userEmail, String userPassword) throws SQLException {
         try{
             stmt = con.createStatement();
@@ -93,6 +113,7 @@ public class Database {
         }
         return null;
     }
+
     public static void removeFromWishList(int productId) throws SQLException {
         try {
             stmt = con.createStatement();
@@ -104,6 +125,14 @@ public class Database {
         } finally {
             stmt.close();
         }
+    }
+
+    public static void setActiveUserSession(String activeUserSession) {
+        Database.activeUserSession = activeUserSession;
+    }
+
+    public static String getActiveUserSession() {
+        return activeUserSession;
     }
 }
 
