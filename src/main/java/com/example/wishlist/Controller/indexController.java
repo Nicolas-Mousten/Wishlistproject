@@ -24,12 +24,18 @@ public class indexController {
         return "Onskepage";
     }
 
+    @GetMapping("/LoginPage")
+    public String loginPage()
+    {
+        return "LoginPage";
+    }
+
     @GetMapping("/SignUpPage")
     public String signOpPage(){
         return "SignUpPage";
     }
 
-    @PostMapping("")
+    private boolean emailIsTaken;
 
     @PostMapping("/signup")
     public String signup(WebRequest dataFromForm)
@@ -42,13 +48,27 @@ public class indexController {
         } catch (Exception e) {
             System.out.println(e);
         }
-        return "redirect:/LoginPage";
+        if(emailIsTaken == true){
+            return "redirect:/emailTaken";
+        }else{
+            return "redirect:/";
+        }
+
     }
-    private boolean emailIsTaken;
+
+
     @GetMapping("/emailTaken")
     public String emailTaken(Model model){
-        model.addAttribute("emailIsTaken",emailIsTaken);
+        String output;
+        if(emailIsTaken==true){
+            output = "Email is taken";
+        }else{
+            output = "";
+        }
+        model.addAttribute("emailIsTaken",output);
         return "SignUpPage";
     }
+
+
 }
 

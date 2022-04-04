@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Front Page</title>
@@ -46,10 +46,12 @@
                 <input id="pwd" type="text"  name="pwd"/>
 
                 <input type="submit">
-                <h1 th:text=$"emailIsTaken"></h1>
             </form>
         </section>
     </div>
+</div>
+<div class="contentBottom">
+    <h1 th:text="${emailIsTaken}"></h1>
 </div>
 </body>
 </html>
