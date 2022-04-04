@@ -14,8 +14,7 @@ import java.sql.SQLException;
 
 @Controller
 public class indexController {
-    private boolean emailIsTaken;
-
+    boolean isEmailValid = false;
     @GetMapping("/")
     public String index()
     {
@@ -39,17 +38,20 @@ public class indexController {
     }
 
     @PostMapping("/signup")
-    public String signup(WebRequest dataFromForm)
-    {
+    public String signup(WebRequest dataFromForm) {
         String email = dataFromForm.getParameter("email");
         String name = dataFromForm.getParameter("name");
         String password = dataFromForm.getParameter("pwd");
         try {
-             emailIsTaken = UserService.isEmailTaken(email, password);
-        } catch (Exception e) {
+            isEmailValid = UserService.isEmailTaken(email);
+            if(!isEmailValid) {
+                Database.insertUser(email, password);
+            }
+        }catch (SQLException e){
             System.out.println(e);
         }
-        if(emailIsTaken == true){
+
+        if(isEmailValid){
             return "redirect:/emailTaken";
         }else{
             return "redirect:/";
@@ -87,7 +89,7 @@ public class indexController {
     @GetMapping("/emailTaken")
     public String emailTaken(Model model){
         String output;
-        if(emailIsTaken==true){
+        if(isEmailValid){
             output = "Email is taken";
         }else{
             output = "";
@@ -95,7 +97,5 @@ public class indexController {
         model.addAttribute("emailIsTaken",output);
         return "SignUpPage";
     }
-
-
 }
 

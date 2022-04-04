@@ -1,6 +1,7 @@
 package com.example.wishlist.repositores;
 
 import com.example.wishlist.model.Product;
+import com.example.wishlist.service.UserService;
 import com.mysql.cj.protocol.Resultset;
 
 import java.sql.*;
@@ -49,6 +50,20 @@ public class Database {
         }
     }
 
+    public static void insertIntoWishListInvites(String email, String wishListId) throws SQLException {
+        try {
+            stmt = con.createStatement();
+            String sqlString = "INSERT INTO `wish_list_invites` (email, wish_list_id) " +
+                    "VALUES ('" + email + "'," + wishListId + ");";
+            stmt.executeUpdate(sqlString);
+        } catch(Exception e) {
+            System.out.println("Query fail");
+        } finally {
+            stmt.close();
+        }
+    }
+
+
     public static void insertIntoWishList(String email, String productId) throws SQLException {
         try {
             stmt = con.createStatement();
@@ -57,10 +72,26 @@ public class Database {
                     "WHERE product_id = " + productId + ";";
             stmt.executeUpdate(sqlString);
         } catch (Exception e) {
-            System.out.println("Product was not iserted into wish list");
+            System.out.println("Product was not added to the wish list");
         } finally {
             stmt.close();
         }
+    }
+
+    public static boolean getIsReserved() {
+       /* ResultSet rs = null;
+        try {
+            stmt = con.createStatement();
+            String sqlString = "SELECT wish_list_id FROM wish_list WHERE email ='" + email + "'";
+            rs = stmt.executeQuery(sqlString);
+        } catch(Exception e) {
+            System.out.println("Query fail");
+        } finally {
+            stmt.close();
+        }
+        assert rs != null;
+        return rs.getString("wish_list_id");*/
+        return true;
     }
 
     public static String getWishListId(String email) throws SQLException {

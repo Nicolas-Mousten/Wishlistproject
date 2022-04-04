@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class WishList {
     private ArrayList<Product> products = new ArrayList<>();
+    private ArrayList<User> guests = new ArrayList<>();
     int userEmail;
     String wishListName;
     int wishListId;

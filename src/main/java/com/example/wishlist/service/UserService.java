@@ -23,19 +23,14 @@ public class UserService {
         }
     }
 
-    public static boolean isEmailTaken(String userEmail, String userPassword) throws SQLException {
+    public static boolean isEmailTaken(String userEmail) throws SQLException {
         String validation = Database.selectUserEmail(userEmail);
         System.out.println(validation);
         if(validation == null){
-            try {
-                Database.insertUser(userEmail, userPassword);
-            }catch (SQLException e){
-                System.out.println(e);
-            }
+            return false;
         }else{
             System.out.println("this email is taken");
             return true;
         }
-        return false;
     }
 }

@@ -1,9 +1,13 @@
 package com.example.wishlist.model;
 
+import java.util.ArrayList;
+
 public class User {
     private String name;
     private String email;
     private String password;
+    private WishList wishList;
+    private ArrayList<String> wishListInvites = new ArrayList<>();
 
     public User(String name, String email, String password) {
         this.name = name;
