@@ -19,10 +19,15 @@ public class indexController {
         return "Frontpage";
     }
 
-    @GetMapping("/hej")
+    @GetMapping("/Onskepage")
     public String onskePage()
     {
         return "Onskepage";
+    }
+
+    @GetMapping("/Frontpage")
+    public String knowmore(){
+        return "Frontpage";
     }
 
     @GetMapping("/SignUpPage")
