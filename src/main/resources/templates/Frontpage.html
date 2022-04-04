@@ -6,91 +6,49 @@
     <link rel="stylesheet" href="stylefrontpage.css">
 
 </head>
-<body>
-
-    <div id="headerbox">
+<header>
         <div class="headerboxleft">
-            <a><img src="giphyTo.gif" id="logo"></a>
+            <a>
+                <img src="giphyTo.gif" id="logo">
+            </a>
             <div id="headerboxtextbox">
                 <h1>MAKE A WISH</h1>
             </div>
         </div>
-        <div class="headerboxright">
-            <div class="dropdown">
-                <a th:href="@{'Onskepage'}"><button id="firsttextbutton">Wish select</button></a>
-            </div>
-            <div class="dropdown">
-                <button id="sectextbutton" class="tekstbuttons">Create user</button>
-            </div>
 
-            <div class="dropdown">
-                <button id="thirdtextbutton" class="tekstbuttons">Know more</button>
-            </div>
-        </div>
-    </div>
+    <nav>
+            <button id="firsttextbutton" class="navbuttons">Wish selec</button>
 
 
+            <button id="sectextbutton" class="navbuttons">Create user</button>
 
-    <div class="contentTop">
+
+            <button id="thirdtextbutton" class="navbuttons">Know more</button>
+
+
+    </nav>
+</header>
+
+<body>
+
+<div class="contentTop">
+    <div class="logInButton">
         <form action="/login" method="POST">
             <label for="email-login">Email: </label>
             <input type="text" id="email-login" name="email"/>
+            <br>
             <label for="pwd-login">Password: </label>
             <input type="password" id="pwd-login" name="pwd" />
+            <br>
             <button type="submit">Submit</button>
         </form>
     </div>
-
-    <div class="contentBottom">
-        <div class="signOpButton">
-            <a href="/SignUpPage"><button style="border: none;">Sign op</button></a>
-        </div>
+</div>
+<div class="contentBottom">
+    <div class="signOpButton">
+        <a href="/SignUpPage"><button style="border: none;">Sign op</button></a>
     </div>
+</div>
 
-
-
-    <!--
-    <div id="middlebigbox">
-        <div id="middlebigboxleft">
-            <div id="middlebigboxlefttop"></div>
-            <div id="middlebigboxleftmiddle"></div>
-            <div id="middlebigboxleftbottom">
-                <button class>sign op</button></div>
-        </div>
-        <div id="middlebigboxright">
-            <div id="middlebigboxrighttekst">
-                <div id="firstcommercialtekst"></div>
-                <div id="secondcommercialtekst"></div>
-                <div id="thirdcommercialtekst"></div>
-            </div>
-        </div>
-    </div>
-    <div id="secMiddleBigbox">
-        <div id="sectekstone"></div>
-        <div id="secteksttwo"></div>
-        <div id="sectekstthree">
-            <button class="secmiddleboxbutton">sign up</button>
-        </div>
-    </div>
-    --->
-    <!---
-    <div id="tekstthirdmiddle"></div>
-
-    <div id="fouthcontainer">
-        <div id="fourthpic"></div>
-        <div id="fourthkasseright">
-            <div id="fourthtekstone"></div>
-            <div id="fourthteksttwo"></div>
-        </div>
-    </div>
-
-    <div id="fifthcontainer">
-        <div id="fifthkasse">
-            <div id="fifthtekstone"></div>
-            <div id="fifthteksttwo"></div>
-        </div>
-        <div id="fifthpics"></div>
-    </div>
-    --->
 </body>
 </html>

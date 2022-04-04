@@ -11,6 +11,7 @@ import org.springframework.web.context.request.WebRequest;
 
 @Controller
 public class indexController {
+    private boolean emailIsTaken;
 
     @GetMapping("/")
     public String index()
@@ -29,8 +30,6 @@ public class indexController {
         return "SignUpPage";
     }
 
-    private boolean emailIsTaken;
-
     @PostMapping("/signup")
     public String signup(WebRequest dataFromForm)
     {
@@ -47,7 +46,23 @@ public class indexController {
         }else{
             return "redirect:/";
         }
+    }
 
+    @PostMapping("/login")
+    public String logIn(WebRequest dataFromForm){
+        String email = dataFromForm.getParameter("email");
+        String password = dataFromForm.getParameter("pwd");
+        Boolean loginStatus = false;
+        try {
+            loginStatus = UserService.logIn(email, password);
+        }catch(Exception e){
+            System.out.println(e);
+        }
+        if(loginStatus == true){
+            return "redirect:/hej";                         //Place redirect place into code
+        }else{
+            return "redirect:/";
+        }
     }
 
     @PostMapping("/addToWishList")

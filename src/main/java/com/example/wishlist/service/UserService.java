@@ -1,10 +1,7 @@
 package com.example.wishlist.service;
 
 import com.example.wishlist.repositores.Database;
-import com.example.wishlist.WishlistApplication;
-import java.sql.Connection;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class UserService {
 
