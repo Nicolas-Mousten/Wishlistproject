@@ -78,6 +78,19 @@ public class Database {
         }
     }
 
+    public void createWishList(String email) throws SQLException {
+        try{
+            stmt = con.createStatement();
+            String sqlString = "INSERT INTO `wish_list` (email)  VALUES" +
+                    "('"+email+"');";
+            stmt.executeUpdate(sqlString);
+        }catch(Exception e){
+            System.out.println(e);
+        } finally{
+            stmt.close();
+        }
+    }
+
     public static boolean getIsReserved() {
        /* ResultSet rs = null;
         try {

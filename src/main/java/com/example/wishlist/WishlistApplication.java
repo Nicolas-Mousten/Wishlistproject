@@ -16,6 +16,7 @@ public class WishlistApplication {
         SpringApplication.run(WishlistApplication.class, args);
         //UserService.emailIsTaken("tobias@gmail.com","iAmStupid");             //Works
         //UserService.logIn("tobias@gmail.com","iStupid");                      //Works
+
     }
 
 }
