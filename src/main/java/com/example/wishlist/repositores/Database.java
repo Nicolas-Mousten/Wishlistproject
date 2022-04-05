@@ -69,7 +69,7 @@ public class Database {
             stmt = con.createStatement();
             String sqlString = "UPDATE `product` " +
                     "SET wish_list_id = " + getWishListId(email) +
-                    "WHERE product_id = " + productId + ";";
+                    "WHERE product_id = " + productId ;
             stmt.executeUpdate(sqlString);
         } catch (Exception e) {
             System.out.println("Product was not added to the wish list");
@@ -109,8 +109,6 @@ public class Database {
         return rs.getString("wish_list_id");
     }
 
-
-
     public static void insertUser(String userEmail, String userPassword) throws SQLException {
         try{
             stmt = con.createStatement();
@@ -123,6 +121,7 @@ public class Database {
             stmt.close();
         }
     }
+
     public static String selectUserEmail(String email) throws SQLException {
         ResultSet rs;
         try{
