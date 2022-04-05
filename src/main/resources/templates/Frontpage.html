@@ -19,16 +19,25 @@
     <nav>
             <button id="firsttextbutton" class="navbuttons"><a href="/Onskepage">Wish selec</a></button>
             <button id="sectextbutton" class="navbuttons"><a href="/SignUpPage">Signup</a></button>
-            <button id="thirdtextbutton" class="navbuttons"> <a href="/Frontpage">know more</a></button>
+            <button id="thirdtextbutton" class="navbuttons"> <a href="/Frontpage">Login</a></button>
     </nav>
 </header>
 
 <body>
 
-<div class="contentTop">
+<div id="container">
+    <div id="firstbox">
+    <a> <img src="happypeopleyas.jpg" id="picOne"></a>
+        <div id="textbox">
+        <p>MAKE A WISH AND GET ALL OF YOUR DREAMS COME TRUE</p>
+        </div>
+    </div>
+
+<div id="contentTop">
+
     <div class="logInButton">
         <form action="/login" method="POST">
-            <label for="email-login">Email: </label>
+            <label id for="email-login">Email: </label>
             <input type="text" id="email-login" name="email"/>
             <br>
             <label for="pwd-login">Password: </label>
@@ -38,9 +47,11 @@
         </form>
     </div>
 </div>
-<div class="contentBottom">
+</div>
+    <div class="contentBottom">
     <div class="signOpButton">
-        <a href="/SignUpPage"><button style="border: none;">Sign op</button></a>
+        <a href="/SignUpPage"><button style="border: none;">Sign up</button></a>
+    </div>
     </div>
 </div>
 
