@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http//www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Front Page</title>
@@ -23,6 +23,21 @@
     </nav>
 </header>
 <body>
+<section class="content">
+    <h1>Your wishlist </h1>
+    <div id="kasse">
+    <div class="scroll">
+        <ul th:each="list : ${wish}">
+            <li th:text="${list.getWish}">
+
+            </li>
+
+        </ul>
+    </div>
+    </div>
+</section>
+
+
     <!--<tr th:each="product: ${wishList1}">
         <td th:text="${product.getName}" />
         <td th:text="${product.getPrice}" />

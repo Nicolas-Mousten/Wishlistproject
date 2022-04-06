@@ -1,6 +1,7 @@
 package com.example.wishlist.Controller;
 
 
+import com.example.wishlist.model.Wish;
 import com.example.wishlist.repositores.Database;
 import com.example.wishlist.service.UserService;
 import org.springframework.stereotype.Controller;
@@ -10,10 +11,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.context.request.WebRequest;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 
 @Controller
 public class indexController {
+
+    Database database=new Database();
+
     boolean isEmailValid = false;
     @GetMapping("/")
     public String index()
@@ -65,7 +70,7 @@ public class indexController {
         Boolean loginStatus = false;
         try {
             loginStatus = UserService.logIn(email, password);
-            Database.setActiveUserSession(email);
+            //Database.setActiveUserSession(email);
         }catch(Exception e){
             System.out.println(e);
         }
@@ -75,7 +80,7 @@ public class indexController {
             return "redirect:/";
         }
     }
-
+/*
     @PostMapping("/addToWishList")
     public String addToWishList(WebRequest dataFromForm) {
         String productId = dataFromForm.getParameter("productId");
@@ -85,7 +90,9 @@ public class indexController {
             System.out.println(e);
         }
         return "redirect:/oenskepage";
-    }
+    }*/
+
+
     @GetMapping("/emailTaken")
     public String emailTaken(Model model){
         String output;
@@ -96,6 +103,22 @@ public class indexController {
         }
         model.addAttribute("emailIsTaken",output);
         return "SignUpPage";
+    }
+
+    @PostMapping("/Onskepage")
+    public String Onskepage(WebRequest dataFromForm) {
+        String wish = dataFromForm.getParameter("wish");
+        System.out.println(wish);
+        Database.makeWishTable(wish);
+
+        return "redirect:/WishlistPage";
+    }
+
+    @GetMapping("/wishlist")
+    public String email(Model model){
+        ArrayList<Wish> list = database.getWishFromDatabase();
+        model.addAttribute("wish", list);
+        return "WishlistPage";
     }
 }
 

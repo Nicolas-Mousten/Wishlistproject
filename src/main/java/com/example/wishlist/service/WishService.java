@@ -7,6 +7,8 @@ import java.sql.SQLException;
 
 public class WishService {
 
+
+/*
     public void inviteToWishList(String email, String activeUserSession) throws SQLException {
         String userEmail = email;
         String wishListId = Database.getWishListId(activeUserSession);
@@ -31,5 +33,5 @@ public class WishService {
 
     public void reserveWish() {
 
-    }
+    }*/
 }
