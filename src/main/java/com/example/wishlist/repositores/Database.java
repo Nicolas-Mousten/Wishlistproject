@@ -113,8 +113,8 @@ public class Database {
         return rs.getString("email");
     }
 
-    public static boolean getIsReserved() {
-       /* ResultSet rs = null;
+    /*public static boolean getIsReserved() {
+        ResultSet rs = null;
         try {
             stmt = con.createStatement();
             String sqlString = "SELECT wish_list_id FROM wish_list WHERE email ='" + email + "'";
@@ -191,7 +191,6 @@ public class Database {
         }
     }
     public ArrayList<Wish> getWishFromDatabase() {
-
         connectDB();
         ArrayList<Wish> list = new ArrayList<>();
         {

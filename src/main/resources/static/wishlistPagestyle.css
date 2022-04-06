@@ -38,16 +38,14 @@ nav{
 }
 
 h1{
+    position: relative;
+    text-align: center;
     font-size: 350%;
     font-family: "Bookman Old Style";
     margin-left: 1vw;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: clip;
-
-
-
-
 }
 #headerboxtextbox{
     display: flex;
@@ -55,6 +53,9 @@ h1{
     align-content: flex-end;
 }
 
+.content {
+    background-color: white;
+}
 
 .navbuttons{
     font-family: "Bookman Old Style";
