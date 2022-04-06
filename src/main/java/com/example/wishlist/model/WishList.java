@@ -5,14 +5,13 @@ import java.util.ArrayList;
 public class WishList {
     private ArrayList<Product> products = new ArrayList<>();
     private ArrayList<User> guests = new ArrayList<>();
-    int userEmail;
+    String userEmail;
     String wishListName;
-    int wishListId;
 
-    private WishList(int userEmail, String wishListName, int wishListId) {
+
+    private WishList(String userEmail, String wishListName, int wishListId) {
         this.userEmail = userEmail;
         this.wishListName = wishListName;
-        this.wishListId = wishListId;
     }
 
     public void addToWishList(Product product) {

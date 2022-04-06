@@ -16,6 +16,7 @@ CREATE TABLE IF NOT EXISTS `wish_list` (
     `email` VARCHAR(50),
     foreign key (`email`) references `user` (`email`)
     );
+/*
 CREATE TABLE IF NOT EXISTS `product` (
     `product_id` INT(10) PRIMARY KEY,
     `product_name` VARCHAR(200),
@@ -28,4 +29,4 @@ CREATE TABLE IF NOT EXISTS `wish_list_invites` (
     `wish_list_id` INT(10),
     `email` VARCHAR(50),
     foreign key(`email`) references `user`(`email`)
-    );
+    );*/

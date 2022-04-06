@@ -1,10 +1,12 @@
 package com.example.wishlist.repositores;
 
 import com.example.wishlist.model.Product;
+import com.example.wishlist.model.Wish;
 import com.example.wishlist.service.UserService;
 import com.mysql.cj.protocol.Resultset;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class Database {
     private static Connection con;
@@ -13,6 +15,9 @@ public class Database {
     private static String user;
     private static Statement stmt;
     private static String activeUserSession;
+    private ResultSet rs;
+    private String sqlString;
+
 
     public Database(String url, String user, String password) {
         Database.url = url;
@@ -21,10 +26,13 @@ public class Database {
         connectDB();
     }
 
+    public Database() {
+    }
+
     private static void connectDB() {
         try
         {
-            con = DriverManager.getConnection(url,user,password);
+            con = DriverManager.getConnection(url,user, password);
             System.out.println("We have a connection");
         }
         catch(Exception e){
@@ -32,7 +40,8 @@ public class Database {
         }
     }
 
-    public static void insertIntoProduct(Product product) throws SQLException {
+
+    /*public static void insertIntoProduct(Product product) throws SQLException {
         int productId = product.getProductId();
         String productName = product.getProductName();
         double productPrice = product.getProductPrice();
@@ -116,7 +125,7 @@ public class Database {
             stmt.close();
         }
         assert rs != null;
-        return rs.getString("wish_list_id");*/
+        return rs.getString("wish_list_id");
         return true;
     }
 
@@ -133,7 +142,7 @@ public class Database {
         }
         assert rs != null;
         return rs.getString("wish_list_id");
-    }
+    }*/
 
     public static void insertUser(String userEmail, String userPassword) throws SQLException {
         try{
@@ -170,6 +179,45 @@ public class Database {
         return null;
     }
 
+    public static void makeWishTable(String wish) {
+
+        connectDB();
+        String sqlString = "INSERT INTO wishlist (`wish`)" + "VALUES('" +wish+"');";
+        try {
+            stmt = con.createStatement();
+            stmt.executeUpdate(sqlString);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public ArrayList<Wish> getWishFromDatabase() {
+
+        connectDB();
+        ArrayList<Wish> list = new ArrayList<>();
+        {
+            try {
+                sqlString = "SELECT * FROM `wishlist`";
+                stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
+                        ResultSet.CONCUR_READ_ONLY);
+                rs = stmt.executeQuery(sqlString);
+
+                while (rs.next()) {
+                    list.add(new Wish(rs.getString("Wish")));
+
+                    System.out.println(list);
+
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            return list;
+
+        }
+
+
+    }
+/*
     public static void removeFromWishList(int productId) throws SQLException {
         try {
             stmt = con.createStatement();
@@ -189,6 +237,6 @@ public class Database {
 
     public static String getActiveUserSession() {
         return activeUserSession;
-    }
+    }*/
 }
 

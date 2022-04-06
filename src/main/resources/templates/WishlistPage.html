@@ -1,11 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http//www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="style-wish-list-page.css">
+    <title>Front Page</title>
+    <link rel="stylesheet" href="stylefrontpage.css">
+
 </head>
+<header>
+    <div class="headerboxleft">
+        <a>
+            <img src="giphyTo.gif" id="logo">
+        </a>
+        <div id="headerboxtextbox">
+            <h1>MAKE A WISH</h1>
+        </div>
+    </div>
+
+    <nav>
+        <button id="firsttextbutton" class="navbuttons"><a href="/Onskepage">Wish selec</a></button>
+        <button id="sectextbutton" class="navbuttons"><a href="/wishlist">wishlist</a></button>
+        <button id="thirdtextbutton" class="navbuttons"> <a href="/Frontpage">Login</a></button>
+    </nav>
+</header>
 <body>
+<section class="content">
+    <h1>Your wishlist </h1>
+    <div id="kasse">
+    <div class="scroll">
+        <ul th:each="list : ${wish}">
+            <li th:text="${list.getWish}">
+
+            </li>
+
+        </ul>
+    </div>
+    </div>
+</section>
+
+
     <!--<tr th:each="product: ${wishList1}">
         <td th:text="${product.getName}" />
         <td th:text="${product.getPrice}" />

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http//www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Front Page</title>
@@ -18,11 +18,407 @@
 
     <nav>
         <button id="firsttextbutton" class="navbuttons"><a href="Onskepage">Wish selec</a></button>
-        <button id="sectextbutton" class="navbuttons"><a href="SignUpPage">Signup</a></button>
-        <button id="thirdtextbutton" class="navbuttons"> <a href="Frontpage">know more</a></button>
+        <button id="sectextbutton" class="navbuttons"><a href="wishlist">wishlist</a></button>
+        <button id="thirdtextbutton" class="navbuttons"> <a href="Frontpage">Login</a></button>
     </nav>
 </header>
+<body>
 
+<div id="containerOne" class="containers">
+    <div id="one" class="boxes">
+       <a>
+           <img src="make-a-wish.jpg" class="wishpics">
+       </a>
+        <div class="wishtekstbox">
+            <p>1 wish</p>
+        </div>
+        <div class="buttonboxes">
+            <form method="POST" action="/Onskepage">
+                <button class="buttonswishlist">add to wishlist</button>
+                <input value="1 wish" type="hidden" name="wish">
+            </form>
+            <button class="buttonswishlist">remove from wishlist</button>
+
+        </div>
+    </div>
+    <div id="two" class="boxes">
+        <a>
+            <img src="make-a-wish.jpg" class="wishpics">
+        </a>
+        <div class="wishtekstbox">
+            <p>2 wish</p>
+        </div>
+        <div class="buttonboxes">
+            <form method="POST" action="/Onskepage">
+                <button class="buttonswishlist">add to wishlist</button>
+                <input value="2 wish" type="hidden" name="wish">
+            </form>
+            <button class="buttonswishlist">remove from wishlist</button>
+
+        </div>
+    </div>
+    <div id="three" class="boxes">
+        <a>
+            <img src="make-a-wish.jpg" class="wishpics">
+        </a>
+        <div class="wishtekstbox">
+            <p>3 wish</p>
+        </div>
+        <div class="buttonboxes">
+            <form>
+            <button class="buttonswishlist">add to wishlist</button>
+                <input value="3 wish" type="hidden" name="wish">
+            </form>
+            <button class="buttonswishlist">remove from wishlist</button>
+        </div>
+    </div>
+    <div class="boxes">
+        <a>
+            <img src="make-a-wish.jpg" class="wishpics">
+        </a>
+        <div class="wishtekstbox">
+            <p>4 wish</p>
+        </div>
+        <div class="buttonboxes">
+            <form>
+            <button class="buttonswishlist">add to wishlist</button>
+                <input value="4 wish" type="hidden" name="wish">
+            </form>
+            <button class="buttonswishlist">remove from wishlist</button>
+
+        </div>
+    </div>
+
+</div>
+<div id="containertwo" class="containers">
+    <div class="boxes">
+        <a>
+            <img src="make-a-wish.jpg" class="wishpics">
+        </a>
+        <div class="wishtekstbox">
+            <p>5 wish</p>
+        </div>
+        <div class="buttonboxes">
+            <form>
+                <input value="5 wish" type="hidden" name="wish">
+            <button class="buttonswishlist">add to wishlist</button>
+            </form>
+            <button class="buttonswishlist">remove from wishlist</button>
+
+        </div>
+    </div>
+    <div class="boxes">
+        <a>
+            <img src="make-a-wish.jpg" class="wishpics">
+        </a>
+        <div class="wishtekstbox">
+            <p>6 wish</p>
+        </div>
+        <div class="buttonboxes">
+            <form>
+            <button class="buttonswishlist">add to wishlist</button>
+                <input value="6 wish" type="hidden" name="wish">
+            </form>
+            <button class="buttonswishlist">remove from wishlist</button>
+
+        </div>
+    </div>
+    <div class="boxes">
+        <a>
+            <img src="make-a-wish.jpg" class="wishpics">
+        </a>
+        <div class="wishtekstbox">
+            <p>7 wish</p>
+        </div>
+        <div class="buttonboxes">
+            <form>
+            <button class="buttonswishlist">add to wishlist</button>
+                <input value="7 wish" type="hidden" name="wish">
+            </form>
+            <button class="buttonswishlist">remove from wishlist</button>
+
+        </div>
+    </div>
+    <div class="boxes">
+        <a>
+            <img src="make-a-wish.jpg" class="wishpics">
+        </a>
+        <div class="wishtekstbox">
+            <p>8 wish</p>
+        </div>
+        <div class="buttonboxes">
+            <form>
+            <button class="buttonswishlist">add to wishlist</button>
+                <input value="7 wish" type="hidden" name="wish">
+            </form>
+            <button class="buttonswishlist">remove from wishlist</button>
+
+        </div>
+    </div>
+</div>
+<div id="containerthree" class="containers">
+    <div class="boxes">
+        <a>
+            <img src="make-a-wish.jpg" class="wishpics">
+        </a>
+        <div class="wishtekstbox">
+            <p>9 wish</p>
+        </div>
+        <div class="buttonboxes">
+            <form>
+            <button class="buttonswishlist">add to wishlist</button>
+                <input value="9 wish" type="hidden" name="wish">
+            </form>
+            <button class="buttonswishlist">remove from wishlist</button>
+
+        </div>
+    </div>
+    <div class="boxes">
+        <a>
+            <img src="make-a-wish.jpg" class="wishpics">
+        </a>
+        <div class="wishtekstbox">
+            <p>10 wish</p>
+        </div>
+        <div class="buttonboxes">
+            <form></form>
+            <button class="buttonswishlist">add to wishlist</button>
+            <input value="10 wish" type="hidden" name="wish">
+            </form>
+            <button class="buttonswishlist">remove from wishlist</button>
+
+        </div>
+    </div>
+    <div class="boxes">
+        <a>
+            <img src="make-a-wish.jpg" class="wishpics">
+        </a>
+        <div class="wishtekstbox">
+            <p>11 wish</p>
+        </div>
+        <div class="buttonboxes">
+            <form>
+            <button class="buttonswishlist">add to wishlist</button>
+                <input value="11 wish" type="hidden" name="wish">
+            </form>
+            <button class="buttonswishlist">remove from wishlist</button>
+
+        </div>
+    </div>
+    <div class="boxes">
+        <a>
+            <img src="make-a-wish.jpg" class="wishpics">
+        </a>
+        <div class="wishtekstbox">
+            <p>12 wish</p>
+        </div>
+        <div class="buttonboxes">
+            <form>
+            <button class="buttonswishlist">add to wishlist</button>
+            <input value="12 wish" type="hidden" name="wish">
+            </form>
+            <button class="buttonswishlist">remove from wishlist</button>
+
+        </div>
+    </div>
+</div>
+<div id="containerfour" class="containers">
+    <div class="boxes">
+        <a>
+            <img src="make-a-wish.jpg" class="wishpics">
+        </a>
+        <div class="wishtekstbox">
+            <p>13 wish</p>
+        </div>
+        <div class="buttonboxes">
+            <form></form>
+            <button class="buttonswishlist">add to wishlist</button>
+            <input value="13 wish" type="hidden" name="wish">
+            </form>
+            <button class="buttonswishlist">remove from wishlist</button>
+
+        </div>
+    </div>
+    <div class="boxes">
+        <a>
+            <img src="make-a-wish.jpg" class="wishpics">
+        </a>
+        <div class="wishtekstbox">
+            <p>14 wish</p>
+        </div>
+        <div class="buttonboxes">
+            <form>
+            <button class="buttonswishlist">add to wishlist</button>
+            <input value="14 wish" type="hidden" name="wish">
+            </form>
+            <button class="buttonswishlist">remove from wishlist</button>
+
+        </div>
+    </div>
+    <div class="boxes">
+        <a>
+            <img src="make-a-wish.jpg" class="wishpics">
+        </a>
+        <div class="wishtekstbox">
+            <p>15 wish</p>
+        </div>
+        <div class="buttonboxes">
+            <form>
+            <button class="buttonswishlist">add to wishlist</button>
+                <input value="15 wish" type="hidden" name="wish">
+            </form>
+            <button class="buttonswishlist">remove from wishlist</button>
+
+        </div>
+    </div>
+    <div class="boxes">
+        <a>
+            <img src="make-a-wish.jpg" class="wishpics">
+        </a>
+        <div class="wishtekstbox">
+            <p>16 wish</p>
+        </div>
+        <div class="buttonboxes">
+            <form>
+            <button class="buttonswishlist">add to wishlist</button>
+            <input value="16 wish" type="hidden" name="wish">
+            </form>
+            <button class="buttonswishlist">remove from wishlist</button>
+
+        </div>
+    </div>
+</div>
+<div id="containerfive" class="containers">
+    <div class="boxes">
+        <a>
+            <img src="make-a-wish.jpg" class="wishpics">
+        </a>
+        <div class="wishtekstbox">
+            <p>17 wish</p>
+        </div>
+        <div class="buttonboxes">
+            <form>
+            <button class="buttonswishlist">add to wishlist</button>
+                <input value="17 wish" type="hidden" name="wish">
+            <button class="buttonswishlist">remove from wishlist</button>
+            </form>
+        </div>
+    </div>
+    <div class="boxes">
+        <a>
+            <img src="make-a-wish.jpg" class="wishpics">
+        </a>
+        <div class="wishtekstbox">
+            <p>18 wish</p>
+        </div>
+        <div class="buttonboxes">
+            <form>
+            <button class="buttonswishlist">add to wishlist</button>
+            <input value="18 wish" type="hidden" name="wish">
+            </form>
+            <button class="buttonswishlist">remove from wishlist</button>
+
+        </div>
+    </div>
+    <div class="boxes">
+        <a>
+            <img src="make-a-wish.jpg" class="wishpics">
+        </a>
+        <div class="wishtekstbox">
+            <p>19 wish</p>
+        </div>
+        <div class="buttonboxes">
+            <form></form>
+            <button class="buttonswishlist">add to wishlist</button>
+            <input value="19 wish" type="hidden" name="wish">
+            <button class="buttonswishlist">remove from wishlist</button>
+            </form>
+
+        </div>
+    </div>
+    <div class="boxes">
+        <a>
+            <img src="make-a-wish.jpg" class="wishpics">
+        </a>
+        <div class="wishtekstbox">
+            <p>20 wish</p>
+        </div>
+        <div class="buttonboxes">
+            <form>
+            <button class="buttonswishlist">add to wishlist</button>
+            <input value="20 wish" type="hidden" name="wish">
+            </form>
+            <button class="buttonswishlist">remove from wishlist</button>
+
+        </div>
+    </div>
+</div>
+<div id="containersix" class="containers">
+    <div class="boxes">
+        <a>
+            <img src="make-a-wish.jpg" class="wishpics">
+        </a>
+        <div class="wishtekstbox">
+            <p>21 wish</p>
+        </div>
+        <div class="buttonboxes">
+            <form>
+            <button class="buttonswishlist">add to wishlist</button>
+            <input value="20 wish" type="hidden" name="wish">
+            </form>
+            <button class="buttonswishlist">remove from wishlist</button>
+
+        </div>
+    </div>
+    <div class="boxes">
+        <a>
+            <img src="make-a-wish.jpg" class="wishpics">
+        </a>
+        <div class="wishtekstbox">
+            <p>22 wish</p>
+        </div>
+        <div class="buttonboxes">
+            <form></form>
+            <button class="buttonswishlist">add to wishlist</button>
+            <input value="20 wish" type="hidden" name="wish">
+            </form>
+            <button class="buttonswishlist">remove from wishlist</button>
+
+        </div>
+    </div>
+    <div class="boxes">
+        <a>
+            <img src="make-a-wish.jpg" class="wishpics">
+        </a>
+        <div class="wishtekstbox">
+            <p>23 wish</p>
+        </div>
+        <div class="buttonboxes">
+            <form></form>
+            <button class="buttonswishlist">add to wishlist</button>
+            <input value="20 wish" type="hidden" name="wish">
+            </form>
+            <button class="buttonswishlist">remove from wishlist</button>
+
+        </div>
+    </div>
+    <div class="boxes">
+        <a>
+            <img src="make-a-wish.jpg" class="wishpics">
+        </a>
+        <div class="wishtekstbox">
+            <p>24 wish</p>
+        </div>
+        <div class="buttonboxes">
+            <form></form>
+            <button class="buttonswishlist">add to wishlist</button>
+            <input value="20 wish" type="hidden" name="wish">
+            </form>
+            <button class="buttonswishlist">remove from wishlist</button>
+
+        </div>
+    </div>
+</div>
 
 </body>
 </html>

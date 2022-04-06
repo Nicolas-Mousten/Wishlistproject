@@ -1,7 +1,7 @@
 package com.example.wishlist.Controller;
 
 
-import com.example.wishlist.model.User;
+import com.example.wishlist.model.Wish;
 import com.example.wishlist.repositores.Database;
 import com.example.wishlist.service.UserService;
 import org.springframework.stereotype.Controller;
@@ -10,13 +10,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.context.request.WebRequest;
 
-import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 
 @Controller
 public class indexController {
-    User user;
+
+    Database database=new Database();
+
     boolean isEmailValid = false;
     @GetMapping("/")
     public String index()
@@ -41,14 +43,14 @@ public class indexController {
     }
 
     @PostMapping("/signup")
-    public String signup(WebRequest dataFromForm, HttpSession session) {
+    public String signup(WebRequest dataFromForm) {
         String email = dataFromForm.getParameter("email");
         String name = dataFromForm.getParameter("name");
         String password = dataFromForm.getParameter("pwd");
         try {
             isEmailValid = UserService.isEmailTaken(email);
             if(!isEmailValid) {
-                Database.insertUser(email, name, password);
+                Database.insertUser(email, password);
             }
         }catch (SQLException e){
             System.out.println(e);
@@ -78,7 +80,7 @@ public class indexController {
             return "redirect:/";
         }
     }
-
+/*
     @PostMapping("/addToWishList")
     public String addToWishList(WebRequest dataFromForm) {
         String productId = dataFromForm.getParameter("productId");
@@ -88,7 +90,9 @@ public class indexController {
             System.out.println(e);
         }
         return "redirect:/oenskepage";
-    }
+    }*/
+
+
     @GetMapping("/emailTaken")
     public String emailTaken(Model model){
         String output;
@@ -99,6 +103,22 @@ public class indexController {
         }
         model.addAttribute("emailIsTaken",output);
         return "SignUpPage";
+    }
+
+    @PostMapping("/Onskepage")
+    public String Onskepage(WebRequest dataFromForm) {
+        String wish = dataFromForm.getParameter("wish");
+        System.out.println(wish);
+        Database.makeWishTable(wish);
+
+        return "redirect:/WishlistPage";
+    }
+
+    @GetMapping("/wishlist")
+    public String email(Model model){
+        ArrayList<Wish> list = database.getWishFromDatabase();
+        model.addAttribute("wish", list);
+        return "WishlistPage";
     }
 }
 
