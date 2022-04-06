@@ -63,7 +63,6 @@ public class Database {
         }
     }
 
-
     public static void insertIntoWishList(String email, String productId) throws SQLException {
         try {
             stmt = con.createStatement();
@@ -78,17 +77,31 @@ public class Database {
         }
     }
 
-    public void createWishList(String email) throws SQLException {
+    /*public static void createWishList(String email) throws SQLException {
         try{
             stmt = con.createStatement();
             String sqlString = "INSERT INTO `wish_list` (email)  VALUES" +
-                    "('"+email+"');";
+                    "('"+email+"')";
             stmt.executeUpdate(sqlString);
         }catch(Exception e){
             System.out.println(e);
         } finally{
             stmt.close();
         }
+    }*/
+
+    public static String doesWishListExist(String email) throws SQLException {
+        ResultSet rs = null;
+        try {
+            stmt = con.createStatement();
+            String sqlString = "SELECT `email` FROM wish_list WHERE email ='" + email + "'";
+            rs = stmt.executeQuery(sqlString);
+        } catch(Exception e) {
+            System.out.println("Query fail");
+        } finally {
+            stmt.close();
+        }
+        return rs.getString("email");
     }
 
     public static boolean getIsReserved() {

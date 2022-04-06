@@ -6,7 +6,6 @@ drop table if exists `product`;
 drop table if exists`wish_list`;
 drop table if exists`user`;
 
-
 CREATE TABLE IF NOT EXISTS `user` (
     `email` VARCHAR(50) PRIMARY KEY,
     `password` VARCHAR(12)
