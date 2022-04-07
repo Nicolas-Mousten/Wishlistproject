@@ -28,10 +28,7 @@
     <div id="kasse">
     <div class="scroll">
         <ul th:each="list : ${wish}">
-            <li th:text="${list.getWish}">
-
-            </li>
-
+            <li th:text="${list.getWish}"></li>
         </ul>
     </div>
     </div>
@@ -51,9 +48,9 @@
             </td>
             <td>
                 <tr th:each="product: ${wishList2}">
-                    <td th:text="${product.getName}" />
-                    <td th:text="${product.getPrice}" />
-                    <td th:text="${product.getIsReserved}" />
+                    <td th:text="${product.getName}"/>
+                    <td th:text="${product.getPrice}"/>
+                    <td th:text="${product.getIsReserved}"/>
                 </tr>
                 <button type="button">Reserve</button>
             </td>

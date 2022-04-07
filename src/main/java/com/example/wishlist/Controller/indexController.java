@@ -76,12 +76,12 @@ public class indexController {
         Boolean loginStatus = false;
         try {
             loginStatus = UserService.logIn(email, password);
-            //Database.setActiveUserSession(email);
+            /*Database.setActiveUserSession(email);*/
         }catch(Exception e){
             System.out.println(e);
         }
         if(loginStatus == true){
-            return "redirect:/hej";                         //Place redirect place into code
+            return "redirect:/Onskepage";                         //Place redirect place into code
         }else{
             return "redirect:/";
         }

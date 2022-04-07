@@ -18,7 +18,6 @@ public class Database {
     private ResultSet rs;
     private String sqlString;
 
-
     public Database(String url, String user, String password) {
         Database.url = url;
         Database.user = user;
@@ -72,7 +71,6 @@ public class Database {
         }
     }
 
-
     public static void insertIntoWishList(String email, String productId) throws SQLException {
         try {
             stmt = con.createStatement();
@@ -87,21 +85,35 @@ public class Database {
         }
     }
 
-    public void createWishList(String email) throws SQLException {
+    /*public static void createWishList(String email) throws SQLException {
         try{
             stmt = con.createStatement();
             String sqlString = "INSERT INTO `wish_list` (email)  VALUES" +
-                    "('"+email+"');";
+                    "('"+email+"')";
             stmt.executeUpdate(sqlString);
         }catch(Exception e){
             System.out.println(e);
         } finally{
             stmt.close();
         }
+    }*/
+
+    public static String doesWishListExist(String email) throws SQLException {
+        ResultSet rs = null;
+        try {
+            stmt = con.createStatement();
+            String sqlString = "SELECT `email` FROM wish_list WHERE email ='" + email + "'";
+            rs = stmt.executeQuery(sqlString);
+        } catch(Exception e) {
+            System.out.println("Query fail");
+        } finally {
+            stmt.close();
+        }
+        return rs.getString("email");
     }
 
-    public static boolean getIsReserved() {
-       /* ResultSet rs = null;
+    /*public static boolean getIsReserved() {
+        ResultSet rs = null;
         try {
             stmt = con.createStatement();
             String sqlString = "SELECT wish_list_id FROM wish_list WHERE email ='" + email + "'";
@@ -178,7 +190,6 @@ public class Database {
         }
     }
     public ArrayList<Wish> getWishFromDatabase() {
-
         connectDB();
         ArrayList<Wish> list = new ArrayList<>();
         {
