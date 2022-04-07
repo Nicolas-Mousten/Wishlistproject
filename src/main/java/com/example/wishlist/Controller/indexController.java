@@ -75,7 +75,7 @@ public class indexController {
             System.out.println(e);
         }
         if(loginStatus == true){
-            return "redirect:/hej";                         //Place redirect place into code
+            return "redirect:/Onskepage";                         //Place redirect place into code
         }else{
             return "redirect:/";
         }

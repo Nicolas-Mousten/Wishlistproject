@@ -18,7 +18,6 @@ public class Database {
     private ResultSet rs;
     private String sqlString;
 
-
     public Database(String url, String user, String password) {
         Database.url = url;
         Database.user = user;
