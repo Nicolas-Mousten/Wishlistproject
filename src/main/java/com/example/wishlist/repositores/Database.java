@@ -169,7 +169,7 @@ public class Database {
     public static void makeWishTable(String wish) {
 
         connectDB();
-        String sqlString = "INSERT INTO wishlist (`wish`)" + "VALUES('" +wish+"');";
+        String sqlString = "INSERT INTO wishlist (`wish`) " + "VALUES ('" +wish+"');";
         try {
             stmt = con.createStatement();
             stmt.executeUpdate(sqlString);

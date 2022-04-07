@@ -37,6 +37,12 @@ public class indexController {
         return "Frontpage";
     }
 
+    @GetMapping("/WishlistPage")
+    public String wishlistpage(Model model){
+        ArrayList<Wish> list = database.getWishFromDatabase();
+        model.addAttribute("wish", list);
+        return "WishlistPage";}
+
     @GetMapping("/SignUpPage")
     public String signOpPage(){
         return "SignUpPage";
@@ -112,13 +118,6 @@ public class indexController {
         Database.makeWishTable(wish);
 
         return "redirect:/WishlistPage";
-    }
-
-    @GetMapping("/wishlist")
-    public String email(Model model){
-        ArrayList<Wish> list = database.getWishFromDatabase();
-        model.addAttribute("wish", list);
-        return "WishlistPage";
     }
 }
 
